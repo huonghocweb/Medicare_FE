@@ -1,0 +1,86 @@
+#thanksPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Chiều cao tối thiểu là toàn màn hình */
+    background-color: #f9f9f9; /* Màu nền nhẹ (tuỳ chọn) */
+}
+
+#thanksPage .content {
+    text-align: center; /* Căn giữa nội dung */
+    width: 700px; /* Đặt chiều rộng tối đa để tránh quá rộng */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff; /* Màu nền hộp */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bóng mờ */
+}
+
+#thanksPage svg {
+    margin: 0 auto 20px; /* Căn giữa SVG và thêm khoảng cách phía dưới */
+}
+
+#thanksPage .btn-success {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#thanksPage .btn-success:hover {
+    background-color: darkgreen;
+}
+
+
+#thanksPage .content .row {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Nền trắng tinh khôi */
+    border: 1px solid #e0e0e0; /* Đường viền nhạt */
+    border-radius: 8px; /* Bo góc mềm mại */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng nhẹ */
+    font-size: 16px;
+    color: #333; /* Màu chữ tối để dễ đọc */
+    max-width: 600px; /* Đặt chiều rộng tối đa */
+    margin-left: auto;
+    margin-right: auto; /* Căn giữa */
+}
+
+#thanksPage .content .row h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e90ff; /* Màu xanh dương nổi bật */
+    margin-bottom: 15px;
+    text-align: center; /* Căn giữa tiêu đề */
+}
+
+#thanksPage .content .row p {
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between; /* Căn đều hai đầu */
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#thanksPage .content .row p strong {
+    font-weight: 600;
+    color: #555; /* Màu chữ nhẹ nhàng hơn */
+}
+
+#thanksPage .content .row p span {
+    color: #000; /* Giá trị đậm hơn để phân biệt */
+}
+
+#thanksPage .content .row .total {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0; /* Đường kẻ phân cách */
+    font-weight: bold;
+    font-size: 16px;
+    color: #1e90ff; /* Màu nổi bật */
+}

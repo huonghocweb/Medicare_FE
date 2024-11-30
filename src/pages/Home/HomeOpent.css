@@ -1,0 +1,38 @@
+/* Container for the button list */
+.button-list {
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between buttons */
+    max-width: 300px; /* Adjust to limit the total width */
+  }
+  
+  /* Style for individual buttons */
+  .list-button {
+    flex: 1 1 calc(33.33% - 10px); /* 3 buttons per row, accounting for gap */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: black;
+    box-sizing: border-box; /* Ensure proper sizing */
+  }
+  
+  /* Hover effect for buttons */
+  /* .list-button:hover {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+  } */
+  
+  /* Optional: Active button style */
+  .list-button.active {
+    border: 2px solid #0d6efd;
+    background-color: #f0f8ff;
+    color: #0d6efd;
+  }
+  
