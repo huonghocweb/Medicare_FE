@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const CartList = ({cartByUserId , handleAddItemToCart }) => {
+const CartList = ({cartByUserId , handleAddItemToCart , handleOpentCouponStorage , codeInputRef ,
+     handleAddCouponToCart , couponByCode ,handleRemoveCoupon}) => {
+    console.log(couponByCode);
     if(!cartByUserId){
         return <p>Loading...</p>
     }
@@ -67,11 +69,8 @@ const CartList = ({cartByUserId , handleAddItemToCart }) => {
             <div className="row">
             <div className="col-md-6">
                 <div className="row mb-5">
-                <div className="col-md-6 mb-3 mb-md-0">
-                    <button className="btn btn-primary btn-md btn-block">Update Cart</button>
-                </div>
                 <div className="col-md-6">
-                    <button className="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>
+                    <NavLink to={`/`} className="btn btn-primary btn-md btn-block">Continue</NavLink>
                 </div>
                 </div>
                 <div className="row">
@@ -79,12 +78,27 @@ const CartList = ({cartByUserId , handleAddItemToCart }) => {
                     <label className="text-black h4" for="coupon">Coupon</label>
                     <p>Enter your coupon code if you have one.</p>
                 </div>
-                <div className="col-md-8 mb-3 mb-md-0">
-                    <input type="text" className="form-control py-3" id="coupon" placeholder="Coupon Code" />
+                <div className="col-md-8 mb-2 ">
+                    <input value={codeInputRef.current} src={codeInputRef} type="text" className="form-control py-3" id="coupon" placeholder="Coupon Code" />
                 </div>
-                <div className="col-md-4">
-                    <button className="btn btn-primary btn-md px-4">Apply Coupon</button>
+                <div className="col-md-2">
+                    <button onClick={handleOpentCouponStorage} className="btn btn-primary"> Storage</button>
                 </div>
+                    { couponByCode && (
+                        <>
+                        <div className="col-md-8 ">
+                            <p style={{border : '5px solid #ddd'}}> <img src={couponByCode.imageUrl} className='avatar-70' /> Discount : 
+                            {couponByCode.discountPercent}%</p>
+                        </div>
+                        <div className="col-md-4">
+                            <button onClick={()=> handleRemoveCoupon()} className="btn btn-primary"> Delete</button>
+                        </div>
+                        </>
+                    ) }
+                <div className="col-md-6">
+                <button onClick={handleAddCouponToCart} className="btn btn-primary btn-md btn-block">Apply Coupon </button>
+                </div>
+               
                 </div>
             </div>
             <div className="col-md-6 pl-5">
@@ -101,6 +115,14 @@ const CartList = ({cartByUserId , handleAddItemToCart }) => {
                     </div>
                     <div className="col-md-6 text-right">
                         <strong className="text-black">{cartByUserId?.totalPrice.toLocaleString('vi')} đ</strong>
+                    </div>
+                    </div>
+                    <div className="row mb-3">
+                    <div className="col-md-6">
+                        <span className="text-black">Discount</span>
+                    </div>
+                    <div className="col-md-6 text-right">
+                        <strong className="text-black"> - {cartByUserId?.discountAmount.toLocaleString('vi')} đ</strong>
                     </div>
                     </div>
                     <div className="row mb-5">

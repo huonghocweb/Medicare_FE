@@ -21,4 +21,40 @@ const addItemToCart = async (userId,formData) => {
     }
 }
 
-export {getCartByUserId,addItemToCart}
+const addCouponToCart = async (userId, code) => {
+    console.log(userId);
+    console.log(code);
+    try {
+        const response = await axiosInstance.get(`/api/cart/addCouponToCart/${userId}`,
+            {
+                params : {
+                    code : code
+                }
+            }
+        )
+        return response;
+    } catch (error) {
+        console.error('error in Add Coupon To Cart',error);
+        throw error;
+    }
+}
+
+const removeCouponToCart = async (userId, code) => {
+    console.log(userId);
+    console.log(code);
+    try {
+        const response = await axiosInstance.get(`/api/cart/removeCouponToCart/${userId}`,
+            {
+                params : {
+                    code : code
+                }
+            }
+        )
+        return response;
+    } catch (error) {
+        console.error('error in Add Coupon To Cart',error);
+        throw error;
+    }
+}
+
+export {getCartByUserId,addItemToCart , addCouponToCart , removeCouponToCart}

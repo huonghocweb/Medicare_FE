@@ -4,12 +4,13 @@
     align-items: center;
     height: 80vh; /* Chiều cao tối thiểu là toàn màn hình */
     background-color: #f9f9f9; /* Màu nền nhẹ (tuỳ chọn) */
+    padding: 400px 0px;
 }
 
 #thanksPage .content {
     text-align: center; /* Căn giữa nội dung */
     width: 700px; /* Đặt chiều rộng tối đa để tránh quá rộng */
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     background-color: #fff; /* Màu nền hộp */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bóng mờ */

@@ -3,7 +3,7 @@ import React from 'react';
 const TopNavBar = () => {
     return (
         <>
-               <div className="iq-top-navbar">
+               {/* <div className="iq-top-navbar">
             <div className="iq-navbar-custom">
                <div className="iq-sidebar-logo">
                   <div className="top-logo">
@@ -284,7 +284,7 @@ const TopNavBar = () => {
                
 
             </div>
-         </div>   
+         </div>    */}
         </>
     );
 };

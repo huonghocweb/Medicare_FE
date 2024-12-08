@@ -1,5 +1,6 @@
 import axiosInstance from "../features/AxiosInstance";
-
+import { getToken } from "./AuthService";
+import { jwtDecode } from 'jwt-decode';
 
 const getAllUser = async (paginationState) => {
     try {
@@ -28,9 +29,26 @@ const getUserById = async (userId) => {
     }
 }
 
+const getUserByToken = async() => {
+    const jwtToken = jwtDecode(getToken());
+    const userName = jwtToken.sub;
+    try {
+        const response = await axiosInstance.get(`/api/user/getByUserName/${userName}`);
+        if(response.data.data !== null){
+            return response.data;
+        }else {
+            return null;
+        }
+      
+    } catch (error) {
+        console.error('error in get user By Token', error);
+        throw error;
+    }
+}
+
 const createUser = async (formData) => {
     try {
-        const response = await axiosInstance.post(`/api/user`, formData , {headers : {'Content-Type' : 'muiltipart/form-data'}});
+        const response = await axiosInstance.post(`/api/user`, formData , {headers : {'Content-Type' : 'multipart/form-data'}});
         return response.data;
     } catch (error) {
         console.error('error in get All User',error);
@@ -48,4 +66,4 @@ const updateUser = async (userId, formData) => {
     }
 }
 
-export {getAllUser,getUserById, createUser,updateUser};
+export {getAllUser,getUserById, createUser,updateUser , getUserByToken};

@@ -1,0 +1,206 @@
+/* Container chính */
+.order-status-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Thanh trạng thái đơn hàng */
+.order-status-bar {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f4f4f4;
+  padding: 10px 0;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+.order-status-bar li {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.order-status-bar li:hover {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.order-status-bar li.active {
+  background-color: #089251;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+/* Thông tin trạng thái đơn hàng */
+.order-status {
+  background-color:#e3e3e3;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-status-shop-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Chi tiết đơn hàng */
+.order-status-details {
+  height: 220px;
+  display: flex;
+  gap: 15px; /* Tăng khoảng cách giữa hình ảnh và text */
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+  justify-content: space-between;
+}
+
+/* Hình ảnh sản phẩm */
+.order-status-product-img {
+  width: 160px;
+  height: 160px;
+  margin-right: 15px;
+  border-radius: 15px;
+  object-fit: cover; /* Giữ tỷ lệ hình ảnh */
+}
+
+/* Thông tin sản phẩm */
+.order-status-product-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* Tên sản phẩm */
+.order-status-food-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.order-status-category-name {
+  font-size: 16px; /* Tăng kích thước chữ */
+  color: #444; /* Màu chữ đậm hơn để dễ nhìn */
+  margin-top: 8px; /* Tăng khoảng cách phía trên */
+  line-height: 1.8; /* Tăng khoảng cách giữa các dòng */
+  font-weight: 500; /* Tăng độ dày chữ */
+  display: flex; /* Để căn chỉnh biểu tượng nếu cần */
+  align-items: center;
+}
+
+/* Thêm biểu tượng trước mỗi thông tin */
+.order-status-category-name::before {
+  content: '\f00c'; /* Unicode FontAwesome check icon */
+  font-family: "Font Awesome 6 Free"; /* FontAwesome 6 */
+  font-weight: 900; /* Đậm hơn */
+  margin-right: 8px; /* Khoảng cách giữa biểu tượng và chữ */
+  color: #2ecc71; /* Màu xanh nổi bật */
+}
+
+/* Làm nổi bật giá trị thông tin */
+.order-status-category-name span {
+  font-weight: bold; /* In đậm giá trị */
+  color: #2a9df4; /* Màu xanh cho giá trị */
+  text-transform: capitalize; /* Viết hoa chữ cái đầu */
+}
+
+/* Giá và số lượng */
+.price-display {
+  font-weight: bold;
+  color: #ff5733;
+  font-size: 16px;
+  margin: 10px 0;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+/* Các nút hành động */
+.order-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px; /* Khoảng cách nhỏ giữa các nút */
+  margin-top: 10px;
+}
+
+.order-status-actions button {
+  padding: 9px 12px; /* Giảm padding */
+  font-size: 14px; /* Giảm kích thước chữ */
+  font-weight: 600; /* Đậm hơn một chút */
+  border: 1px solid transparent; /* Viền mặc định */
+  border-radius: 10px; /* Bo tròn nhẹ */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng nhẹ */
+}
+
+/* Màu sắc cho các loại nút */
+.order-status-return {
+  background-color: #34c759;
+  color: white;
+}
+
+.order-status-return:hover {
+  background-color: #28a745;
+  border-color: #1e7e34;
+  transform: scale(0.98); /* Nhấn xuống khi hover */
+}
+
+.order-status-review-btn {
+  background-color: #e0484e;
+  color: white;
+}
+
+.order-status-review-btn:hover {
+  background-color: #c0392b;
+  border-color: #a02822;
+  transform: scale(0.98);
+}
+
+.order-status-request-return {
+  background-color: #f39c12;
+  color: white;
+}
+
+.order-status-request-return:hover {
+  background-color: #e67e22;
+  border-color: #d35400;
+  transform: scale(0.98);
+}
+
+/* Giá tiền tổng */
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.price span {
+  color: #34c759;
+}
+
+/* Text khi không tìm thấy đơn hàng */
+.not-found-text {
+  font-size: 30px;
+  color: red;
+  text-align: center;
+}
+
+.not-found-text i {
+  color: #63e6be;
+}

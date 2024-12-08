@@ -27,4 +27,32 @@ const getOrderById = async (orderId) => {
     }
 }
 
-export {getAllOrder , getOrderById}
+const getMyOrderByStatusId = async (userId , paginationSate) => {
+    try {
+        const response = await axiosInstance.get(`/api/order/getMyOrderByStatusId/${userId}` , {
+            params : {
+                pageCurrent : paginationSate.pageCurrent , 
+                pageSize : paginationSate.pageSize,
+                sortOrder : paginationSate.sortOrder, 
+                sortBy : paginationSate.sortBy , 
+                orderStatusId : paginationSate.statusIdSelected 
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error('error in get Order By UserId',error);
+        throw error;
+    }
+}
+
+const updateOrderStatusByAcion = async (orderId,actionStatus) => {
+    try {
+        const response = await axiosInstance.get(`/api/order/updateOrderStatus/${orderId}/${actionStatus}`);
+        return response.data;
+    } catch (error) {
+        console.error('error in get Order By UserId',error);
+        throw error;
+    }
+}
+
+export {getAllOrder , getOrderById , getMyOrderByStatusId , updateOrderStatusByAcion}

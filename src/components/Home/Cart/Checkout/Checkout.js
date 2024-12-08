@@ -1,8 +1,13 @@
 import React from 'react';
+import LoadingPopup from '../../../Include/LoadingPopup';
 
-const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentRequest}) => {
-  if(!cartByUserId ){
-    return <p>Loading...</p>
+const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentRequest , handleOpenDelivery  , addressState
+  
+}) => {
+  if(!cartByUserId || !userByUserId ){
+    return <>
+      <LoadingPopup/>
+    </>
   }
     return (
         <>
@@ -16,9 +21,9 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6 mb-5 mb-md-0">
+          <div className="col-md-5 mb-5 mb-md-0">
             <h2 className="h3 mb-3 text-black">Billing Details</h2>
-            <div className="p-3 p-lg-5 border">
+            <div className="p-3 p-lg-8 border">
 
               <div className="form-group row">
                 <div className="col-md-6">
@@ -27,7 +32,7 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
                 </div>
                 <div className="col-md-6">
                   <label  className="text-black">Phone Number <span className="text-danger">*</span></label>
-                  <input value={userByUserId.phoneNumber} type="text" className="form-control" />
+                  <input value={userByUserId.phoneNumber} type="text" className="form-control"  />
                 </div>
               </div>
            
@@ -40,16 +45,23 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
                   <label for="c_phone" className="text-black">Phone <span className="text-danger">*</span></label>
                   <input type="text" className="form-control" placeholder="Phone Number"/>
                 </div>
-                <div className="form-group row">
-                <div className="col-md-12">
-                  <label  className="text-black">Address <span className="text-danger">*</span></label>
-                  <input type="text" className="form-control"  placeholder="Street address"/>
                 </div>
-              </div>
-              </div>
-
-            
-    
+                <div className="col-md-12">
+                  <label for="c_phone" className="text-black">Delivery Address <span className="text-danger">*</span></label>
+                  <textarea style={{fontSize : '16px'}} type="text" value={addressState.fullAddress} rows="2" className="form-control" disabled></textarea>
+                </div>
+                <div className="form-group row mb-5" style={{marginTop : '20px'}}>
+                    <div className="col-md-3">
+                    </div>
+                    <div className="col-md-6">
+                        <button 
+                        onClick={handleOpenDelivery}
+                        className="btn btn-primary btn-lg"
+                        >Delivery Address
+                        </button>
+                    </div>
+                    </div>
+             
               <div className="form-group">
                 <label className="text-black" data-toggle="collapse"
                  ><input type="checkbox" value="1"
@@ -67,7 +79,6 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
                 </div>
               </div>
     
-    
               <div className="form-group">
                 <label for="c_ship_different_address" className="text-black" data-toggle="collapse"
                   href="#ship_different_address" role="button" aria-expanded="false"
@@ -82,24 +93,7 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
               </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="row mb-5">
-              <div className="col-md-12">
-                <h2 className="h3 mb-3 text-black">Coupon Code</h2>
-                <div className="p-3 p-lg-5 border">
-                  <label for="c_code" className="text-black mb-3">Enter your coupon code if you have one</label>
-                  <div className="input-group w-75">
-                    <input type="text" className="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code"
-                      aria-describedby="button-addon2"/>
-                    <div className="input-group-append">
-                      <button className="btn btn-primary btn-sm px-4" type="button" id="button-addon2">Apply</button>
-                    </div>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
-    
+          <div className="col-md-7">
             <div className="row mb-5">
               <div className="col-md-12">
                 <h2 className="h3 mb-3 text-black">Your Order</h2>
@@ -120,7 +114,7 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
                       </tr>
                       ))
                     }
-                    <tr>
+                      <tr>
                         <td className="text-black font-weight-bold"><strong> Total Quantity</strong></td>
                         <td></td>
                         <td className="text-black">{cartByUserId.totalQuantity} Item</td>
@@ -128,8 +122,26 @@ const Checkout = ({cartByUserId , paymentMethods , userByUserId , handlePaymentR
                       <tr>
                         <td className="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
                         <td></td>
-                        <td className="text-black">{cartByUserId.totalPrice.toLocaleString('vi')} đ</td>
+                        <td className="text-black"><strong>{cartByUserId.totalPrice.toLocaleString('vi')} đ</strong></td>
                       </tr>
+                      {
+                        cartByUserId.coupon && (
+                          <tr>
+                            <td className="text-black font-weight-bold"><strong>Coupon </strong></td>
+                            <td></td>
+                            <td className="text-black"> <strong>- {cartByUserId.discountAmount.toLocaleString('vi')} đ</strong></td>
+                         </tr>
+                        )
+                      }
+                      {
+                        addressState.shipFee && (
+                          <tr>
+                            <td className="text-black font-weight-bold"><strong>Ship Fee </strong></td>
+                            <td></td>
+                            <td className="text-black"> <strong> {addressState.shipFee.toLocaleString('vi')}đ </strong></td>
+                         </tr>
+                        )
+                      }
                       <tr>
                         <td className="text-black font-weight-bold"><strong>Order Total</strong></td>
                         <td></td>

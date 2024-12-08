@@ -776,9 +776,10 @@ table td, table th { border: 1px solid #eaeaea; } */
 }
 
 .iq-sidebar-menu .iq-menu li a span {
-    font-weight: 350;
+    font-weight: 400;
     color: black;
     white-space: nowrap;
+    font-size: 20px;
     padding: 0;
     display: inline-block;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -1108,9 +1109,16 @@ body.sidebar-main .iq-sidebar:hover .iq-sidebar-menu .iq-menu li ul.iq-submenu-d
     min-height: 75px;
 }
 
-.navbar-list li:last-child>a {
-    padding-right: 20px;
+.navbar-list li>button {
+    font-size: 18px;
+    padding: 0 20px;
+    line-height: 60px;
+    color: var(--iq-primary);
+    display: block;
+    min-height: 75px;
+    border: none;
 }
+
 
 .menu-tag {
     position: absolute;

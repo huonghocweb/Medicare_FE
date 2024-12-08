@@ -158,7 +158,6 @@ sup {
 }
 
 a {
-	color: #827af3;
 	text-decoration: none;
 	background-color: transparent
 }
@@ -2133,7 +2132,6 @@ pre code {
 	width: 100%;
 	height: calc(1.5em + .75rem + 2px);
 	padding: .375rem .75rem;
-	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
 	color: #495057;
@@ -3329,7 +3327,7 @@ fieldset:disabled a.btn {
 .btn-group-lg>.btn,
 .btn-lg {
 	padding: .5rem 1rem;
-	font-size: 1.25rem;
+	font-size: 14px;
 	line-height: 1.5;
 	border-radius: 20px;
 }

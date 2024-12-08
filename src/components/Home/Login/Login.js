@@ -13,6 +13,7 @@ const Login = ({authRequestState, handleChangeAuthRequest , submitLogin}) => {
                                 <div className="form-group">
                                     <label for="exampleInputEmail1">User Name :  </label>
                                     <input
+                                    value={authRequestState.userName}
                                      onChange={(e) => handleChangeAuthRequest('userName', e.target.value)}
                                      type="text" 
                                      className="form-control mb-0"  
@@ -22,6 +23,7 @@ const Login = ({authRequestState, handleChangeAuthRequest , submitLogin}) => {
                                     <label for="exampleInputPassword1">Password : </label>
                                     <a href="#" className="float-right">Forgot password?</a>
                                     <input 
+                                     value={authRequestState.password}
                                     onChange={(e) => handleChangeAuthRequest('password', e.target.value)}
                                     type="password" 
                                     className="form-control mb-0"  

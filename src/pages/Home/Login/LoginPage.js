@@ -35,12 +35,17 @@ const LoginPage = () => {
                     sessionStorage.setItem('jwtToken',response.data);
                 }
                 setTimeout(() => {
-                    navigate('/');
+                    navigate(`/`);
+                    window.location.reload();
                 },2500)
             }else {
                 setAlert({type : 'error' , message : 'Login Failed !'});
             }
-            setAuthRequestState();
+            setAuthRequestState({
+                userName: '',
+                password: '',
+                remember: false,
+            });
         } catch (error) {
             console.error('error in submit Login', error);
         }

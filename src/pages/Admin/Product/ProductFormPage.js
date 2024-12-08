@@ -82,7 +82,7 @@ const ProductFormPage = () => {
     const handleChangeFile = (e) => {
         const selectedFiles = Array.from(e.target.files); // Chuyển thành mảng
         if (selectedFiles.length > 0) {
-            const imageUrl = URL.createObjectURL(selectedFiles); // Chỉ lấy file đầu tiên để hiển thị
+            const imageUrl = URL.createObjectURL(selectedFiles[0]); // Chỉ lấy file đầu tiên để hiển thị
             console.log(imageUrl);
             setFiles(selectedFiles); // Lưu danh sách file
             setImageProduct(imageUrl); // Hiển thị hình ảnh

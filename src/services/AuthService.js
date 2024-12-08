@@ -15,4 +15,10 @@ const getToken  = ()=> {
     return localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
 }
 
-export {login ,getToken}
+const removeToken = () => {
+    localStorage.removeItem('jwtToken');
+    sessionStorage.removeItem('jwtToken');
+    return null;
+}
+
+export {login ,getToken , removeToken}

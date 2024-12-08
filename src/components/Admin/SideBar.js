@@ -45,6 +45,10 @@ const SideBar = () => {
                      <li className="active">
                         <NavLink  className="iq-waves-effect collapsed" to='/admin/products' ><i className="ri-user-line"></i><span>Product</span><i className="ri-arrow-right-s-line iq-arrow-right"></i></NavLink>
                      </li>
+                     <li className="active">
+                        <NavLink  className="iq-waves-effect collapsed" to='/admin/coupons' ><i className="ri-user-line"></i><span>Coupon</span><i className="ri-arrow-right-s-line iq-arrow-right"></i></NavLink>
+                     </li>
+                     
                      <li className="iq-menu-title"><i className="ri-subtract-line"></i><span>Components</span></li>
                      
                      <li>

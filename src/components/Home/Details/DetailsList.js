@@ -52,8 +52,12 @@ const DetailsList = ({productById ,dosageFormsByProductId,packagingsByProductId 
                 </div>
               </div>
             </div>
-            <p><button disabled={!variationChoosed} onClick={() => handleAddItemToCart(variationChoosed.variationId, quantitySelect)} 
-            className="btn btn-success">Add To Cart</button></p>
+            <p><button 
+            disabled={!variationChoosed}
+             onClick={() => handleAddItemToCart(variationChoosed.variationId, quantitySelect)} 
+             className="btn btn-primary dark-btn-primary"
+            > Add To Cart
+            </button></p>
             <div className="mt-5">
               <ul className="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
                 <li className="nav-item">

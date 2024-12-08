@@ -19,7 +19,7 @@ const OrderListPage = () => {
         totalPage : ''
     })
 
-    const hanldeChangePaginationState = (name, value) => {
+    const handleChangePaginationState = (name, value) => {
         setPaginationState(prev => ({
                 ...prev, 
                 [name] : value
@@ -38,7 +38,8 @@ const OrderListPage = () => {
             const response =await getAllOrder(paginationState);
             console.log(response);
             setOrders(response.data.content);
-            hanldeChangePaginationState('totalPage',response.data.totalPages);
+            handleChangePaginationState('totalPage',response.data.totalPages);
+            handleChangePaginationState('pageCurrent',response.data.pageable.pageNumber);
         } catch (error) {
             console.error('error in fetch All Order',error);
         }
@@ -66,7 +67,7 @@ const OrderListPage = () => {
             <OrderList
             orders = {orders}
             paginationState = {paginationState}
-            hanldeChangePaginationState = {hanldeChangePaginationState}
+            handleChangePaginationState = {handleChangePaginationState}
             sortOptions = {sortOptions}
             handleGetOrderByOrderId = {handleGetOrderByOrderId}
              />

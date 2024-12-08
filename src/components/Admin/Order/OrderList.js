@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PaginationControls from '../../Include/PaginationControls';
 
-const OrderList = ({orders, paginationState,hanldeChangePaginationState, sortOptions ,handleGetOrderByOrderId}) => {
+const OrderList = ({orders, paginationState,handleChangePaginationState, sortOptions ,handleGetOrderByOrderId}) => {
    if(!orders){
       return (
          <p>Loading... </p>
@@ -53,7 +53,7 @@ const OrderList = ({orders, paginationState,hanldeChangePaginationState, sortOpt
                        </div>
                        <PaginationControls
                        paginationState={paginationState}
-                       handlePaginationChange = {hanldeChangePaginationState}
+                       handlePaginationChange = {handleChangePaginationState}
                        sortOptions={sortOptions}
                         />
                        <table id="user-list-table" className="table table-striped table-borderless mt-4" role="grid" aria-describedby="user-list-page-info">

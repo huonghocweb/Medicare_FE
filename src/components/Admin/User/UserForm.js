@@ -127,14 +127,14 @@ const UserForm = ({userById, handleSubmit, handleUploadUser,register,roles , rol
                                            placeholder="Address"/>
                                     </div>
                                     <div className="form-group col-sm-6">
-                                             <label className="d-block">Gender:</label>
+                                             <label className="d-block" >Gender:</label>
                                              <div className="custom-control custom-radio custom-control-inline">
-                                                <input {...register('gender')} value="1" type="radio"  className="custom-control-input"/>
-                                                <label className="custom-control-label"> Male </label>
+                                                <input {...register('gender')} id='male'  value="1" type="radio"  className="custom-control-input"/>
+                                                <label className="custom-control-label" htmlFor='male'> Male </label>
                                              </div>
                                              <div className="custom-control custom-radio custom-control-inline">
-                                                <input {...register('gender')} value="0" type="radio"  className="custom-control-input"/>
-                                                <label className="custom-control-label" > Female </label>
+                                                <input {...register('gender')} id='female' value="0" type="radio"  className="custom-control-input"/>
+                                                <label className="custom-control-label" htmlFor='female'> Female </label>
                                              </div>
                                           </div>
                                     <div className="form-group col-sm-6">
@@ -145,13 +145,14 @@ const UserForm = ({userById, handleSubmit, handleUploadUser,register,roles , rol
                                                     key={index}
                                                     className="custom-control custom-radio custom-control-inline">
                                                 <input
+                                                id={item.roleId}
                                                  type="checkbox"  
                                                  className="custom-control-input"
                                                  value={item.roleId}
                                                  checked={roleIdChecked.includes(item.roleId)}
                                                  onChange={() => handleChangeRoleId(item.roleId)}
                                                   />
-                                                <label className="custom-control-label" for="customRadio6"> {item.roleName} </label>
+                                                <label className="custom-control-label" for={item.roleId}> {item.roleName} </label>
                                              </div>
                                                 ))
                                              }
